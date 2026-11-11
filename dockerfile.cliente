@@ -1,0 +1,7 @@
+FROM ubuntu:latest
+
+# Actualizar repositorios e instalar el cliente XMPP en consola
+RUN apt-get update && apt-get install -y profanity
+
+# Mantener el contenedor vivo en segundo plano para poder entrar a la consola
+CMD ["tail", "-f", "/dev/null"]
