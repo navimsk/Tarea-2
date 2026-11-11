@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  servidor_ejabberd:
+    build:
+      context: .
+      dockerfile: Dockerfile.servidor
+    container_name: servidor_ejabberd
+    ports:
+      - "5222:5222"
+    networks:
+      - red_xmpp
+
+  cliente_profanity:
+    build:
+      context: .
+      dockerfile: Dockerfile.cliente
+    container_name: cliente_profanity
+    stdin_open: true
+    tty: true
+    networks:
+      - red_xmpp
+
+networks:
+  red_xmpp:
+    driver: bridge
