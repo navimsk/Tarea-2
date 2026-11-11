@@ -1,0 +1,4 @@
+FROM ejabberd/ecs:latest
+
+# Exponer el puerto estándar de comunicación cliente-servidor XMPP
+EXPOSE 5222
